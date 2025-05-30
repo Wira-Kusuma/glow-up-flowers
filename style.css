@@ -1,0 +1,79 @@
+/* Overall page style with a dreamy gradient background */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* fun vibe */
+    user-select: none;
+}
+
+/* Styling for a centered header */
+h1 {
+    position: absolute;
+    top: 20px;
+    font-size: 2.5rem;
+    color: #ff3cac;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+/* Basic flower style */
+.flower {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff69b4 40%, #fff0f5 100%);
+    animation: glow 2s infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.7));
+    background-image: url(img/flower.png);
+    background-position: center;
+    background-size: cover;
+    animation: infinite 5s rotate;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Create a layered effect using pseudo-elements */
+.flower::before, .flower::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,105,180,0.8) 0%, rgba(255,105,180,0) 70%);
+}
+/* Outer glow layer */
+.flower::before {
+    width: 120px;
+    height: 120px;
+    top: -10px;
+    left: -10px;
+}
+/* Inner core highlight */
+.flower::after {
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 20px;
+    background: radial-gradient(circle, #ff1493 0%, #fff0f5 70%);
+}
+
+/* Keyframes for the glowing animation */
+@keyframes glow {
+    from {
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.7));
+    }
+    to {
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 1));
+    }
+}
