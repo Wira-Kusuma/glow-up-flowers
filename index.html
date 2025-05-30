@@ -18,20 +18,38 @@
   
   <script>
     // Add extra sparkle: click anywhere to spawn a new glowing flower!
-    document.body.addEventListener('mousemove', function(e) {
-      const flower = document.createElement('div');
-      flower.className = 'flower';
-      // Position flower centered on the click
-      flower.style.position = 'absolute';
-      flower.style.left = (e.clientX - 50) + 'px';
-      flower.style.top = (e.clientY - 50) + 'px';
-      document.body.appendChild(flower);
-      
-      // Optional: remove the flower after a few seconds for a transient glow effect
-      setTimeout(() => {
-        flower.remove();
-      }, 3000);
-    });
+    // Untuk mouse di komputer
+document.body.addEventListener('mousemove', spawnFlower);
+
+// Untuk sentuhan di HP
+document.body.addEventListener('touchmove', spawnFlower);
+
+function spawnFlower(e) {
+  const flower = document.createElement('div');
+  flower.className = 'flower';
+  flower.style.position = 'absolute';
+
+  // Ambil posisi tergantung jenis event
+  let x, y;
+  if (e.type === 'touchmove') {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  } else {
+    x = e.clientX;
+    y = e.clientY;
+  }
+
+  flower.style.left = (x - 50) + 'px';
+  flower.style.top = (y - 50) + 'px';
+
+  document.body.appendChild(flower);
+
+  // Hapus flower setelah 3 detik
+  setTimeout(() => {
+    flower.remove();
+  }, 3000);
+}
+
   </script>
 </body>
 </html>
