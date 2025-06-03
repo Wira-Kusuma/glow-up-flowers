@@ -1,55 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Glow Up Flowers</title>
 
   <!-- link style -->
-   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
-   <!-- favicon -->
-    <link rel="shortcut icon" href="img/flower.png" type="image/x-icon">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="img/flower.png" type="image/x-icon" />
 </head>
+
 <body>
   <h1>Glow Up!</h1>
+
   <!-- Initial flower in the center -->
   <div class="flower"></div>
-  
-  <script>
-    // Add extra sparkle: click anywhere to spawn a new glowing flower!
-    // Untuk mouse di komputer
-document.body.addEventListener('mousemove', spawnFlower);
 
-// Untuk sentuhan di HP
-document.body.addEventListener('touchmove', spawnFlower);
+  <div class="control">
+    <p>gradient</p>
+    <input type="color" name="" id="color1">
+    <input type="color" name="" id="color2">
+  </div>
 
-function spawnFlower(e) {
-  const flower = document.createElement('div');
-  flower.className = 'flower';
-  flower.style.position = 'absolute';
-
-  // Ambil posisi tergantung jenis event
-  let x, y;
-  if (e.type === 'touchmove') {
-    x = e.touches[0].clientX;
-    y = e.touches[0].clientY;
-  } else {
-    x = e.clientX;
-    y = e.clientY;
-  }
-
-  flower.style.left = (x - 50) + 'px';
-  flower.style.top = (y - 50) + 'px';
-
-  document.body.appendChild(flower);
-
-  // Hapus flower setelah 3 detik
-  setTimeout(() => {
-    flower.remove();
-  }, 3000);
-}
-
-  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>

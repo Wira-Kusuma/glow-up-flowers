@@ -1,4 +1,9 @@
 /* Overall page style with a dreamy gradient background */
+
+html {
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +12,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
     font-family: 'Comic Sans MS', cursive, sans-serif; /* fun vibe */
     user-select: none;
 }
